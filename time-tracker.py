@@ -45,9 +45,11 @@ class Timer(tkinter.Label):
                     self.hours +=1
 
             dSec = str(self.seconds)
-            if self.seconds < 10:   dSec = '0'+str(self.seconds)
+            if self.seconds < 10:   
+                dSec = '0'+str(self.seconds)
             dMin = str(self.minutes)
-            if self.minutes < 10:   dMin = '0'+str(self.minutes)
+            if self.minutes < 10:   
+                dMin = '0'+str(self.minutes)
 
             display = str(self.hours)+' : '+dMin+' : '+dSec
             self.configure(text=display)
@@ -55,7 +57,7 @@ class Timer(tkinter.Label):
 
 class Clock(tkinter.Label):
     def __init__(self, parent=None, date=False):
-        tkinter.Label.__init__(self, parent, font = ('Courier', 12, 'bold'), fg='#625044')
+        tkinter.Label.__init__(self, parent, font = ('Courier', 12, 'bold'), fg='#655044')
         self.date = date
         if self.date: self.ind = time.strftime('%A, %B %d')
         else:    self.ind = time.strftime('%H:%M:%S')
@@ -152,7 +154,7 @@ class App():
 
 if __name__ == "__main__":
     root = tkinter.Tk()
-    root.title("TUScu Saati")
+    root.title("tusCU saati")
     app = App(root)
     root.attributes('-topmost', True)
     root.mainloop()
