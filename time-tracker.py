@@ -2,7 +2,7 @@ import tkinter, tkinter.font, time
 
 class Task():
     def __init__(self,parent=None,taskLabel=None,row=None):
-        self.parent = parent
+        self.parent = parent #edited
         self.task = tkinter.Label(self.parent,text=taskLabel, fg='#1e5f74')
         self.timer = Timer(self.parent)
         self.taskLabel = taskLabel
