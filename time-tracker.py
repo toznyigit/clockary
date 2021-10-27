@@ -51,7 +51,7 @@ class Timer(tkinter.Label):
             if self.minutes < 10:   
                 dMin = '0'+str(self.minutes)
 
-            display = str(self.hours)+' : '+dMin+' : '+dSec
+            display = f"{str(self.hours)} : {dMin} : {dSec}" #f string version
             self.configure(text=display)
         self.after(1000, self.tick)
 
