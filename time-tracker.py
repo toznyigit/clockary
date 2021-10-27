@@ -101,6 +101,7 @@ class App():
         self.calendarApplet.grid(row=self.currLen+3, columnspan=3)
 
     def addTask(self,obj=None):
+        cs = 1
         self.currLen+=1
         if obj:
             obj.parent = self.parent
@@ -114,12 +115,12 @@ class App():
         for opt in self.tasklist:
             self.taskMenu['menu'].add_command(label=opt.taskLabel,command=tkinter._setit(self.selectedTask,opt.taskLabel+':'+str(self.tasklist.index(opt))))
 
-        self.newTask.grid(row=self.currLen+1,column=0,columnspan=2)
-        self.taskControl.grid(row=self.currLen+1,column=2)
-        self.taskMenu.grid(row=self.currLen+2,column=0,columnspan=2)
-        self.taskControl2.grid(row=self.currLen+2,column=2)
-        self.clockApplet.grid(row=self.currLen+3, columnspan=3)
-        self.calendarApplet.grid(row=self.currLen+4, columnspan=3)
+        self.newTask.grid(row=self.currLen+1,column=0,columnspan=cs+1)
+        self.taskControl.grid(row=self.currLen+1,column=cs+1)
+        self.taskMenu.grid(row=self.currLen+2,column=0,columnspan=cs+1)
+        self.taskControl2.grid(row=self.currLen+2,column=cs+1)
+        self.clockApplet.grid(row=self.currLen+3, columnspan=cs+2)
+        self.calendarApplet.grid(row=self.currLen+4, columnspan=cs+2)
 
     def delTask(self):
         delList = []
@@ -144,11 +145,11 @@ class App():
         if self.selectedTask.get() != '':
             index = int(self.selectedTask.get().split(':')[1])
             if self.tasklist[index].selected:
-                self.tasklist[index].task.configure(fg='#1e5f74',font = tkinter.font.Font(overstrike=0))
-                self.tasklist[index].selected = False
+                self.tasklist[index].task.configure(fg='#1e5f74',font = tkinter.font.Font(overstrike=int(false)))
+                self.tasklist[index].selected = !(True)
             else:
-                self.tasklist[index].task.configure(fg='#74331e',font = tkinter.font.Font(overstrike=1))
-                self.tasklist[index].selected = True
+                self.tasklist[index].task.configure(fg='#74331e',font = tkinter.font.Font(overstrike=int(true)))
+                self.tasklist[index].selected = !(False)
 
 
 
