@@ -123,9 +123,9 @@ class App():
 
     def delTask(self):
         delList = []
-        for task in self.tasklist:
-            if task.selected:
-                delList.append(task)
+        for task_old in self.tasklist:
+            if task_old.selected:
+                delList.append(task_old)
         
         for task in delList:
             self.tasklist.remove(task)
